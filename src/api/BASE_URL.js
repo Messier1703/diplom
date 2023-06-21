@@ -1,0 +1,1 @@
+export const API_BASE_URL = "https://ecoboxwebapi20230517185257.azurewebsites.net/api"

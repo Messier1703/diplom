@@ -1,0 +1,18 @@
+.login{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form{
+    &_title{
+        padding-bottom: 7%;
+        text-align: center;
+    }
+}
+
+#login_form{
+    text-align: center;
+}

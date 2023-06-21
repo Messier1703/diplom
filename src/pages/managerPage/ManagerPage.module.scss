@@ -1,0 +1,23 @@
+#btn:hover{
+    cursor: pointer;
+}
+
+#brigade_card:hover{
+    cursor: pointer;
+}
+
+.title{
+    font-size: 60px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.manager_page{
+    padding: 20px 0;
+}
