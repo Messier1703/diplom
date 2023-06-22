@@ -37,7 +37,7 @@ const PostApplication = () => {
               <Input placeholder="Описание" />
             </Form.Item>
             <Form.Item name="number" rules={[{ required: true, message: 'Введите число!' }]}>
-              <Input placeholder="Число" type="number" />
+              <Input placeholder="Номер телефона" type="phone" />
             </Form.Item>
             <Form.Item>
               <Button type="primary" htmlType="submit">

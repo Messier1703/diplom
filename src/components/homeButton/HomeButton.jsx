@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom';
 
 function HomeButton() {
   return (
+    <div 
+    style={{
+      padding: "25px"
+    }}
+    >
     <Link to="/home">
-      <Button type="primary">Вернуться на главную страницу</Button>
+      <Button type="primary" danger>Вернуться на главную страницу</Button>
     </Link>
+    </div>
   );
 }
 

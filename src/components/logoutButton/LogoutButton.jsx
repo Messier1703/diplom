@@ -13,9 +13,11 @@ function LogoutButton() {
   const isTokenAvailable = !!localStorage.getItem('token');
 
   return isTokenAvailable && (
-    <Button type="danger" onClick={handleLogout} style={{ backgroundColor: 'red', borderColor: 'red' }}>
-      Logout
+    <div style={{padding: "25px"}}>
+    <Button type="primary" danger onClick={handleLogout}>
+      Выйти из аккаунта
     </Button>
+    </div>
   );
 }
 

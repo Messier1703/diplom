@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { Tabs } from 'antd';
-import s from './ClientProfile.module.scss';
+import s from './Admin.module.scss';
 import AllClients from '../../components/allClients/AllClients';
 import AllBrigades from '../../components/allBrigades/AllBrigades';
 import AllApplications from '../../components/allApplications/AllApplications';
 import BrigadeRegistration from '../auth/brigadeRegistration/BrigadeRegistration';
 import ManagerRegistration from '../auth/managerRegistration/ManagerRegistration';
 import HomeButton from '../../components/homeButton/HomeButton';
-import ClientApplications from '../../components/clientApplications/ClientApplications';
-import PostApplication from '../postApplication/PostApplication';
 
 const { TabPane } = Tabs;
 
-function ClientProfile() {
+function ManagerPage() {
     const [activeTab, setActiveTab] = useState('1');
 
     const handleTabChange = (key) => {
@@ -24,11 +22,20 @@ function ClientProfile() {
             <div className="container">
                 <div className={s.admin_tabs_wrapper}>
                     <Tabs activeKey={activeTab} onChange={handleTabChange} centered className={s.admin_tabs}>
-                    <TabPane tab="Мои заявки" key="1">
-                            <ClientApplications/>
+                        <TabPane tab="Управление заявками" key="1">
+                            <AllApplications />
                         </TabPane>
-                        <TabPane tab="Оставить заявку" key="2">
-                            <PostApplication />
+                        <TabPane tab="Все клиенты" key="2">
+                            <AllClients />
+                        </TabPane>
+                        <TabPane tab="Бригады" key="3">
+                            <AllBrigades />
+                        </TabPane>
+                        <TabPane tab="Зарегестрировать бригаду" key="4">
+                            <BrigadeRegistration />
+                        </TabPane>
+                        <TabPane tab="Зарегестрировать менеджера" key="5">
+                            <ManagerRegistration />
                         </TabPane>
                     </Tabs>
                     <HomeButton />
@@ -38,4 +45,4 @@ function ClientProfile() {
     );
 }
 
-export default ClientProfile;
+export default ManagerPage;

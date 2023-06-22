@@ -1,7 +1,7 @@
 .first {
     min-height: 100vh;
     position: relative;
-    background: url('./images/home-page-background.jpg') center/cover no-repeat;
+    background: url('./images/home-page-background.jpg') center/cover no-repeat fixed;
     color: white;
 
     &_content{
@@ -32,3 +32,27 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+.advantages{
+    height: 50vh;
+    padding: 100px;
+    
+    h2{
+        font-size: 24px;
+        padding-bottom: 10px;
+    }
+
+    p{
+        font-size: 20px;
+    }
+}
+
+.actions{
+    height: 50vh;
+    padding: 100px;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
