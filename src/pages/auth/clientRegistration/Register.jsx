@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import s from './Register.module.scss';
+import TransparentHeader from '../../../components/header/Header';
 
 function Register() {
   const [value, setValue] = useState({
     email: '',
-    password: ''
+    password: '',
   });
 
   const navigate = useNavigate();
@@ -23,51 +24,55 @@ function Register() {
       }
     } catch (error) {
       console.error(error);
+      message.warning('Registration failed. Please try again.');
     }
   };
 
   return (
-    <div className="container">
-      <div className={s.register}>
-        <div className={s.form}>
-          <h1 className={s.form_title}>Создайте аккаунт!</h1>
-          <Form
-            name="normal_register"
-            className="register-form"
-            id={s.register_form}
-            initialValues={{ remember: true }}
-          >
-            <Form.Item
-              name="email"
-              rules={[
-                { type: 'email', message: 'The input is not a valid E-mail!' },
-                { required: true, message: 'Please input your E-mail!' }
-              ]}
-              onChange={e => setValue({ ...value, email: e.target.value })}
+    <>
+      <TransparentHeader />
+      <div className="container">
+        <div className={s.register}>
+          <div className={s.form}>
+            <h1 className={s.form_title}>Создайте аккаунт!</h1>
+            <Form
+              name="normal_register"
+              className="register-form"
+              id={s.register_form}
+              initialValues={{ remember: true }}
             >
-              <Input placeholder="Email" />
-            </Form.Item>
-            <Form.Item
-              name="password"
-              rules={[{ required: true, message: 'Please input your Password!' }]}
-              onChange={e => setValue({ ...value, password: e.target.value })}
-            >
-              <Input.Password placeholder="Пароль" />
-            </Form.Item>
-            <Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="register-form-button"
-                onClick={getData}
+              <Form.Item
+                name="email"
+                rules={[
+                  { type: 'email', message: 'The input is not a valid E-mail!' },
+                  { required: true, message: 'Please input your E-mail!' },
+                ]}
+                onChange={(e) => setValue({ ...value, email: e.target.value })}
               >
-                Создать
-              </Button>
-            </Form.Item>
-          </Form>
+                <Input placeholder="Email" />
+              </Form.Item>
+              <Form.Item
+                name="password"
+                rules={[{ required: true, message: 'Please input your Password!' }]}
+                onChange={(e) => setValue({ ...value, password: e.target.value })}
+              >
+                <Input.Password placeholder="Пароль" />
+              </Form.Item>
+              <Form.Item>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="register-form-button"
+                  onClick={getData}
+                >
+                  Создать
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,25 +1,31 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
-import { HomeOutlined, AppstoreOutlined, UserOutlined } from '@ant-design/icons';
+import { Layout, Typography, Menu } from 'antd';
+import { Link } from 'react-router-dom';
+import LogoutButton from '../logoutButton/LogoutButton';
+import { MenuItem } from '@mui/base';
 
+const { Title } = Typography;
 const { Header } = Layout;
 
-const AppHeader = () => {
+const TransparentHeader = () => {
   return (
     <Header>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-        <Menu.Item key="1" icon={<HomeOutlined />}>
-          Home
+      <Menu theme="dark" mode="horizontal" style={{ lineHeight: '64px', justifyContent: 'center' }}>
+        <Menu.Item key="1" className="hoverable-tab">
+          <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item key="2" icon={<AppstoreOutlined />}>
-          Products
+        <Menu.Item key="2" className="hoverable-tab">
+          <Link to="/login">Login</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<UserOutlined />}>
-          Profile
+        <Menu.Item key="3" className="hoverable-tab">
+          <Link to="/register">Register</Link>
+        </Menu.Item>
+        <Menu.Item key="4" className="hoverable-tab">
+          <LogoutButton/>
         </Menu.Item>
       </Menu>
     </Header>
   );
 };
 
-export default AppHeader;
+export default TransparentHeader;

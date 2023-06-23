@@ -7,6 +7,7 @@ import AllApplications from '../../components/allApplications/AllApplications';
 import BrigadeRegistration from '../auth/brigadeRegistration/BrigadeRegistration';
 import ManagerRegistration from '../auth/managerRegistration/ManagerRegistration';
 import HomeButton from '../../components/homeButton/HomeButton';
+import TransparentHeader from '../../components/header/Header';
 
 const { TabPane } = Tabs;
 
@@ -19,6 +20,7 @@ function ManagerPage() {
 
     return (
         <div className={s.admin}>
+            <TransparentHeader/>
             <div className="container">
                 <div className={s.admin_tabs_wrapper}>
                     <Tabs activeKey={activeTab} onChange={handleTabChange} centered className={s.admin_tabs}>
@@ -33,9 +35,6 @@ function ManagerPage() {
                         </TabPane>
                         <TabPane tab="Зарегестрировать бригаду" key="4">
                             <BrigadeRegistration />
-                        </TabPane>
-                        <TabPane tab="Зарегестрировать менеджера" key="5">
-                            <ManagerRegistration />
                         </TabPane>
                     </Tabs>
                     <HomeButton />

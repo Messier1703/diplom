@@ -1,0 +1,15 @@
+.cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.brigade_page{
+    padding: 20px 0;
+}
+
+.title{
+    font-size: 60px;
+    text-align: center;
+    padding-bottom: 20px;
+}

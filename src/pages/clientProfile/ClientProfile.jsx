@@ -9,6 +9,10 @@ import ManagerRegistration from '../auth/managerRegistration/ManagerRegistration
 import HomeButton from '../../components/homeButton/HomeButton';
 import ClientApplications from '../../components/clientApplications/ClientApplications';
 import PostApplication from '../postApplication/PostApplication';
+import TransparentHeader from '../../components/header/Header';
+import ActiveApplications from '../../components/activeApplications/ActiveApplications';
+import InactiveApplications from '../../components/inactiveApplications/InactiveApplications';
+import UnconfirmedApplications from '../../components/unconfirmedApplications/UnconfirmedApplications';
 
 const { TabPane } = Tabs;
 
@@ -21,13 +25,20 @@ function ClientProfile() {
 
     return (
         <div className={s.admin}>
+            <TransparentHeader/>
             <div className="container">
                 <div className={s.admin_tabs_wrapper}>
                     <Tabs activeKey={activeTab} onChange={handleTabChange} centered className={s.admin_tabs}>
-                    <TabPane tab="Мои заявки" key="1">
-                            <ClientApplications/>
+                        <TabPane tab="Активные заявки" key="1">
+                            <ActiveApplications />
                         </TabPane>
-                        <TabPane tab="Оставить заявку" key="2">
+                        <TabPane tab="Неактивные заявки" key="2">
+                            <InactiveApplications />
+                        </TabPane>
+                        <TabPane tab="Подтвердить выполнение" key="3">
+                            <UnconfirmedApplications />
+                        </TabPane>
+                        <TabPane tab="Оставить заявку" key="4">
                             <PostApplication />
                         </TabPane>
                     </Tabs>

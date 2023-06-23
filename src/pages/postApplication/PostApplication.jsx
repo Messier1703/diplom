@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import axios from 'axios';
 import { API_BASE_URL } from '../../api/BASE_URL';
 import s from './PostApplication.module.scss';
@@ -19,9 +19,11 @@ const PostApplication = () => {
       .post(`${API_BASE_URL}/Application`, data, { headers })
       .then((response) => {
         console.log('API response:', response.data);
+        message.success('Application submitted successfully!');
       })
       .catch((error) => {
         console.error('API error:', error);
+        message.error('Failed to submit application. Please try again.');
       });
   };
 

@@ -1,22 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function LogoutButton() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    navigate('/home');
+    navigate('/');
   };
 
   const isTokenAvailable = !!localStorage.getItem('token');
 
   return isTokenAvailable && (
-    <div style={{padding: "25px"}}>
-    <Button type="primary" danger onClick={handleLogout}>
-      Выйти из аккаунта
-    </Button>
+    <div>
+      <Button type="primary" danger onClick={handleLogout}>
+        Выйти из аккаунта
+      </Button>
     </div>
   );
 }

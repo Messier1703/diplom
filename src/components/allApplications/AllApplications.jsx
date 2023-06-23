@@ -82,10 +82,14 @@ const AllApplications = () => {
             <div className="container">
                 {/* <h1 className={s.title}>Управление заявками</h1> */}
                 <div className={s.cards}>
-                    {applications.map((application) => (
+                    {applications
+                    .filter((application) => application.status === 0)
+                    .map((application) => (
                         <Card key={application.id}>
                             <p>Описание: {application.description}</p>
                             <p>Адрес: {application.adress}</p>
+                            <p>ID: {application.id}</p>
+                            <p>Number: {application.number}</p>
                             <Button id={s.btn} type="primary" onClick={() => showModal(application.id)}>
                                 Перенаправить на бригаду
                             </Button>

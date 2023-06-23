@@ -9,8 +9,8 @@ function HomeButton() {
       padding: "25px"
     }}
     >
-    <Link to="/home">
-      <Button type="primary" danger>Вернуться на главную страницу</Button>
+    <Link to="/">
+      <Button type="primary" danger>Вернуться</Button>
     </Link>
     </div>
   );
